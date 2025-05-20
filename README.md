@@ -1,50 +1,85 @@
-# CasinoGame
+# Dice Betting Simulator
 
-A console-based Python mini-game that simulates a simple casino dice game. Built with object-oriented principles and modular architecture, this project demonstrates core programming skills suitable for entry-level backend development.
+**Dice Betting Simulator** is a Python-based CLI game that allows users to place bets, roll two dice, and simulate win/loss outcomes based on basic betting logic.  
+The game tracks balance, logs results, and displays statistics in real-time.
+
+---
 
 ## Features
 
-- Dice rolling with betting system
-- Tracks player balance
-- Records history of game rounds
-- Analyzes outcomes (wins, losses, draws)
-- Automatically ends game when balance is too low
-- Modular file structure (separated logic, UI, and statistics)
+- User balance and bet system
+- Two-dice roll with win/loss conditions
+- Input validation and CLI interaction
+- Real-time game history and statistics
+- Modular structure (`game.py`, `statistics.py`, `ui.py`)
+
+---
 
 ## Tech Stack
 
-- **Python 3**
-- Built-in modules: `random`, `collections`
-- Object-Oriented Programming
-- Command-line interface
+- Python 3.10+
+- `random` — for dice rolls
+- `collections.Counter` — to analyze win/loss outcomes
+- CLI input/output
 
-## Sample Output
+---
 
-You rolled: 3 and 5
-You lose $10.
-Current balance: $90
+### Installation
 
-Game history:
-Rolled 3 and 5 - lost $10 | ...
-
-Game results: {'lose': 1}
-
-## Potential Improvements
-
-- Add persistent storage (save/load game state)
-- Improve randomness with weighted probabilities
-- Add difficulty levels or betting multipliers
-- Build a web-based version using Flask or Django
-- Implement unit tests using `pytest`
-- Add player profiles and stats history
-
-
-## How to Run
-
-```bash
 git clone https://github.com/katebabakova444/CasinoGame.git
 cd CasinoGame
-python3 src/main.py
+python main.py
+
+---
+
+### Project Structure
+
+CasinoGame/
+├── main.py            # Entry point
+├── game.py            # Core logic and dice mechanics
+├── statistics.py      # Win/loss tracking
+├── ui.py              # CLI interface
+└── README.md
+
+---
+
+
+## What I Learned
+
+- How to structure a Python project into multiple logical modules
+- Writing a basic CLI game loop with user input and validation
+- Simulating probability using `random` and interpreting results
+- Using `collections.Counter` for tracking statistics
+- Managing game state (balance, history, outcomes) across sessions
+- Practicing clean, readable, and reusable Python code
+
+---
 
 ## Author
-Kateryna Babakova
+
+**Kateryna Babakova**  
+Self-taught backend developer with a background in anesthesiology  
+Participant of DPI Cohort (May 2025)  
+Actively preparing for Microsoft Leap and Google Apprenticeship  
+[GitHub Profile](https://github.com/katebabakova444)
+
+## Example Output
+
+```bash
+Press Enter to play or 'q' to quit:
+Enter your bet (min: $5, available: $100): 20
+You rolled: 3 and 6
+You lose 20.
+Current balance: $80
+
+Press Enter to play or 'q' to quit: q
+
+Game history:
+Rolled 3 and 6
+
+--- Game Summary ---
+Wins: 3
+Losses: 1
+
+---
+*Project built for learning and portfolio purposes.*

@@ -1,22 +1,35 @@
-from src.game import CasinoGame
+from game import Game
+from statistics import Statistics
+from ui import UI
+
 def main():
-    game = CasinoGame()
+    game = Game()
+    stats = Statistics()
+    ui = UI()
 
     while True:
-        choice = input("\nPress Enter to play or 'q' to quit: ")
-        if choice.lower() == 'q':
-            print("\nGame history:")
-            print(" | ".join(str(outcome) for outcome in game.history))
-            stats = game.analyze_outcome()
-            print("Game results: ", stats)
+        choice = ui.get_user_choice()
+        if choice == 'q':
+            ui.display_history(game.history)
+            ui.display_stats(stats.analyze(game.outcomes))
             break
-        game.play_round()
+
+        bet = ui.get_user_bet(game.balance)
+        if bet is None:
+            ui.display_message("Invalid input. Try again.")
+            continue
+
+        result = game.play_round(bet)
+
+        if result["status"] == "ok":
+            ui.display_result(result["outcome"], result["dice"], result["balance"])
+        else:
+            ui.display_message(result["message"])
+
         if game.balance < 5:
-            print("Game over! You're out of money.")
-            print("\nGame history:")
-            print(" | ".join(str(outcome) for outcome in game.history))
-            stats = game.analyze_outcome()
-            print("Game results: ", stats)
+            ui.display_message("Game over! You're out of money.")
+            ui.display_history(game.history)
+            ui.display_stats(stats.analyze(game.outcomes))
             break
 
 if __name__ == "__main__":

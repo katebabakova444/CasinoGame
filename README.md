@@ -50,17 +50,6 @@ CasinoGame/
 ├── ui.py              # CLI interface
 └── README.md
 
----
-
-
-## What I Learned
-
-- How to structure a Python project into multiple logical modules
-- Writing a basic CLI game loop with user input and validation
-- Simulating probability using `random` and interpreting results
-- Using `collections.Counter` for tracking statistics
-- Managing game state (balance, history, outcomes) across sessions
-- Practicing clean, readable, and reusable Python code
 
 ---
 

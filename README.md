@@ -1,36 +1,45 @@
-# Dice Betting Simulator
+# 🎲 Dice Betting Simulator
 
-**Dice Betting Simulator** is a Python-based CLI game that allows users to place bets, roll two dice, and simulate win/loss outcomes based on basic betting logic.  
-The game tracks balance, logs results, and displays statistics in real-time.
-
----
-
-## Features
-
-- User balance and bet system
-- Two-dice roll with win/loss conditions
-- Input validation and CLI interaction
-- Real-time game history and statistics
-- Modular structure (`game.py`, `statistics.py`, `ui.py`)
+A Python-based CLI game that lets users place bets, roll dice, and simulate win/loss outcomes based on basic probability.  
+The game tracks balance, logs results, and displays real-time stats using clean modular design.
 
 ---
 
-## Tech Stack
+## 💡 Why I Built This
+
+I wanted to go beyond static scripts and write a full interactive loop — something with memory, user feedback, and persistent session data.  
+This project helped me break a CLI tool into reusable, testable modules with a clear game state.
+
+---
+
+## ✨ Features
+
+- Balance and betting system
+- Two-dice roll with win/loss logic
+- CLI input validation and user feedback
+- Real-time tracking of game history and outcomes
+- Modular architecture: `game.py`, `statistics.py`, `ui.py`
+
+---
+
+## 🧠 Tech & Concepts
 
 - Python 3.10+
-- `random` — for dice rolls
-- `collections.Counter` — to analyze win/loss outcomes
-- CLI input/output
+- Standard Libraries: `random`, `collections.Counter`
+- Project architecture (splitting logic/UI/statistics)
+- Probability logic and game state
+- CLI formatting for user interaction
+- Future-ready for unit testing and scaling
 
 ---
 
-### Installation
+## ▶️ How to Run
 
+```bash
 git clone https://github.com/katebabakova444/CasinoGame.git
 cd CasinoGame
 python main.py
-
----
+```
 
 ### Project Structure
 
@@ -55,14 +64,6 @@ CasinoGame/
 
 ---
 
-## Author
-
-**Kateryna Babakova**  
-Self-taught backend developer with a background in anesthesiology  
-Participant of DPI Cohort (May 2025)  
-Actively preparing for Microsoft Leap and Google Apprenticeship  
-[GitHub Profile](https://github.com/katebabakova444)
-
 ## Example Output
 
 ```bash
@@ -80,6 +81,19 @@ Rolled 3 and 6
 --- Game Summary ---
 Wins: 3
 Losses: 1
+```
 
 ---
-*Project built for learning and portfolio purposes.*
+
+## 📚 What I Practiced
+- Structuring a multi-file Python project
+- Managing interactive game state and loops
+- Simulating randomness and statistical outcomes
+- Using Counter() to persist and analyze data
+- Practicing clean code: readable, modular, reusable
+
+## 👩‍💻 Author
+
+Created by Kateryna Babakova (https://github.com/katebabakova444)
+This project is part of my backend development journey.
+View my full portfolio: kateryna-portfolio (https://github.com/katebabakova444/kateryna-portfolio)

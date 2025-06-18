@@ -1,18 +1,18 @@
-# 🎲 Dice Betting Simulator
+# Dice Betting Simulator
 
 A Python-based CLI game that lets users place bets, roll dice, and simulate win/loss outcomes based on basic probability.  
 The game tracks balance, logs results, and displays real-time stats using clean modular design.
 
 ---
 
-## 💡 Why I Built This
+## Why I Built This
 
 I wanted to go beyond static scripts and write a full interactive loop — something with memory, user feedback, and persistent session data.  
 This project helped me break a CLI tool into reusable, testable modules with a clear game state.
 
 ---
 
-## ✨ Features
+##  Features
 
 - Balance and betting system
 - Two-dice roll with win/loss logic
@@ -22,7 +22,7 @@ This project helped me break a CLI tool into reusable, testable modules with a c
 
 ---
 
-## 🧠 Tech & Concepts
+##  Tech & Concepts
 
 - Python 3.10+
 - Standard Libraries: `random`, `collections.Counter`
@@ -33,7 +33,7 @@ This project helped me break a CLI tool into reusable, testable modules with a c
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ```bash
 git clone https://github.com/katebabakova444/CasinoGame.git
@@ -74,14 +74,14 @@ Losses: 1
 
 ---
 
-## 📚 What I Practiced
+##  What I Practiced
 - Structuring a multi-file Python project
 - Managing interactive game state and loops
 - Simulating randomness and statistical outcomes
 - Using Counter() to persist and analyze data
 - Practicing clean code: readable, modular, reusable
 
-## 👩‍💻 Author
+## Author
 
 Created by Kateryna Babakova (https://github.com/katebabakova444)
 This project is part of my backend development journey.

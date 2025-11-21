@@ -1,4 +1,4 @@
-from game import Game
+from game.game import Game
 from statistics import Statistics
 from ui import UI
 

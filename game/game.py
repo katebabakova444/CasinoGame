@@ -2,7 +2,8 @@ import random
 MIN_BET = 5
 
 class Game:
-    def __init__(self, balance=100):
+    def __init__(self,balance=100):
+        self.start_balance = balance
         self.balance = balance
         self.history = []
         self.outcomes = []

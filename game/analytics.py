@@ -26,5 +26,22 @@ class GameAnalytics:
             "average_profit_per_game": avg_profit
         }
 
+    def predict_balance(self, game, history, num_future_games):
+        total_games = len(history)
+        if total_games == 0:
+            return {
+                "current_balance": game.balance,
+                "predict_balance": game.balance
+            }
+        else:
+            profit = game.balance - game.start_balance
+            avg_profit = profit / total_games
+            future_profit = avg_profit * num_future_games
+            predicted_balance = game.balance + future_profit
+        return {
+            "current_balance": game.balance,
+            "predicted_balance": predicted_balance
+        }
+
 
 

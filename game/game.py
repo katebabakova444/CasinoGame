@@ -1,10 +1,12 @@
 import random
 MIN_BET = 5
-
+WIN_MULTIPLAYER = 2
 class Game:
-    def __init__(self,balance=100):
+    def __init__(self,balance=100, game_id=None, storage=None):
         self.start_balance = balance
         self.balance = balance
+        self.game_id = game_id
+        self.storage = storage
         self.history = []
         self.outcomes = []
         self.roll_groups = {"win": [], "lose": []}
@@ -38,7 +40,7 @@ class Game:
 
         if dice1 == dice2:
             outcome = "win"
-            self.balance += bet * 2
+            self.balance += bet * WIN_MULTIPLAYER
             self.total_wins += 1
         else:
             outcome = "lose"
@@ -46,6 +48,14 @@ class Game:
             self.total_losses += 1
         self.outcomes.append(outcome)
         self.roll_groups[outcome].append((dice1, dice2))
+        self.storage.save_round(
+            self.game_id,
+            dice1,
+            dice2,
+            bet,
+            outcome,
+            self.balance
+        )
         return {
             "status": "ok",
             "outcome": outcome,

@@ -1,6 +1,6 @@
 from game.game import Game
 from game.simulation import MonteCarloSimulator
-from statistics import Statistics
+from game.statistics import Statistics
 from game.analytics import GameAnalytics
 
 g = Game(balance=100)

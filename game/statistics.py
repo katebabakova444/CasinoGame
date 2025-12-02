@@ -6,8 +6,10 @@ class Statistics:
         counts = Counter(outcomes)
         wins = counts.get("wins", 0)
         losses = counts.get("lose", 0)
+
         total_games = wins + losses
         win_rate = wins / total_games if total_games > 0 else 0
+
         return {
             "total_games": total_games,
             "wins": wins,

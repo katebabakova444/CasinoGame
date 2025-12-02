@@ -1,4 +1,7 @@
 __pycache__/
 .idea/
 *.pyc
+*.db
+.env/
+venv/
 .DS_Store

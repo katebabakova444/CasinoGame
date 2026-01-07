@@ -35,4 +35,4 @@ class UI:
         print(f"Total games: {stats.get('total_games', 0)}")
         print(f"Wins: {stats.get('win', 0)}")
         print(f"Losses: {stats.get('lose', 0)}")
-        print(f"Win rate: {stats.get({'win_rate'}, 0):.2f}")
+        print(f"Win rate: {stats.get('win_rate', 0):.2f}")

@@ -1,12 +1,16 @@
 import random
 MIN_BET = 5
 WIN_MULTIPLAYER = 2
+class NullStorage:
+    def save_round(self, *args, **kwargs):
+        pass
+
 class Game:
     def __init__(self,balance=100, game_id=None, storage=None):
         self.start_balance = balance
         self.balance = balance
         self.game_id = game_id
-        self.storage = storage
+        self.storage = storage or NullStorage()
         self.history = []
         self.outcomes = []
         self.roll_groups = {"win": [], "lose": []}

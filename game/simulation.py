@@ -1,7 +1,10 @@
 from collections import Counter
 from game.game import Game
 class MonteCarloSimulator:
-    def run_simulation(self, runs: int, bet: int, rounds_per_run: int = 1):
+    def __init__(self, storage=None):
+        self.storage = storage
+
+    def run_simulation(self, runs, bet, rounds_per_run=1):
         total_wins = 0
         total_losses = 0
         profits = []
@@ -9,7 +12,7 @@ class MonteCarloSimulator:
         lose_rolls = Counter()
 
         for i in range(runs):
-            g = Game(balance=100)
+            g = Game(balance=100, storage=self.storage)
             for r in range(rounds_per_run):
                 result = g.play_round(bet)
                 dice1, dice2 = result["dice"]

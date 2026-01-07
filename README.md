@@ -1,88 +1,170 @@
-# Dice Betting Simulator
+# Casino Game Simulator
 
-A Python-based CLI game that lets users place bets, roll dice, and simulate win/loss outcomes based on basic probability.  
-The game tracks balance, logs results, and displays real-time stats using clean modular design.
+**Backend Engineering Project (Python / Flask / Monte Carlo Simulation)**
 
----
+Casino Game Simulator is a backend-focused Python project that models a casino betting game with both **CLI** and **REST API** interfaces.  
+The project demonstrates backend architecture, testing, simulations, and statistical analysis, including **Monte Carlo simulations**.
 
-## Why I Built This
+The project started as a simple CLI betting game and evolved into a structured backend system with persistent storage, analytics, simulations, automated tests, and a deployed API.
 
-I wanted to go beyond static scripts and write a full interactive loop — something with memory, user feedback, and persistent session data.  
-This project helped me break a CLI tool into reusable, testable modules with a clear game state.
-
----
-
-##  Features
-
-- Balance and betting system
-- Two-dice roll with win/loss logic
-- CLI input validation and user feedback
-- Real-time tracking of game history and outcomes
-- Modular architecture: `game.py`, `statistics.py`, `ui.py`
+Its main goal is to demonstrate backend engineering growth through clean architecture, separation of concerns, testing, and real-world probabilistic modeling.
 
 ---
 
-##  Tech & Concepts
+## Project Goals
 
-- Python 3.10+
-- Standard Libraries: `random`, `collections.Counter`
-- Project architecture (splitting logic/UI/statistics)
-- Probability logic and game state
-- CLI formatting for user interaction
-- Future-ready for unit testing and scaling
+- Apply backend engineering principles to a probabilistic domain
+- Practice clean architecture and separation of concerns
+- Build and expose game logic via a REST API
+- Implement Monte Carlo simulations for statistical analysis
+- Design and test backend logic with unit and integration tests
+- Support multiple interfaces (CLI and API)
+- Show clear learning progression over project iterations
 
 ---
 
-##  How to Run
+## What This Project Does
+
+The Casino Game Simulator allows you to:
+
+### CLI Mode
+- Place bets and play individual game rounds
+- Track balance changes during gameplay
+- Run a lightweight interactive betting experience
+
+> CLI mode is intentionally limited to gameplay only (no simulations or analytics) to keep responsibilities separated.
+
+### API Mode
+- Play the game
+- Run Monte Carlo simulations
+- Analyze game outcomes and statistics
+- Persist game rounds and results
+- Retrieve analytics and aggregated statistics
+- Interact with the system as a backend service
+
+---
+
+## Architecture Overview 
+``` text
+CasinoGame/
+├── game/
+│   ├── init.py
+│   ├── game.py          # Core game logic (bets, rounds, balance)
+│   ├── analytics.py     # Game analytics and outcome aggregation
+│   ├── statistics.py    # Statistical calculations
+│   ├── simulation.py   # Monte Carlo simulation engine
+│   ├── storage.py      # Persistence layer abstraction
+│   ├── db.py           # Database logic
+│   └── ui.py            # CLI interface
+│
+├── tests/
+│   ├── test_game.py
+│   ├── test_api.py
+│   ├── test_analytics.py
+│   ├── test_simulation.py
+│   └── test_statistics.py
+│
+├── app.py               # Flask API entry point
+├── main.py              # CLI entry point
+├── requirements.txt
+├── Procfile             # Deployment configuration
+└── README.md
+```
+
+
+---
+
+## Tech Stack
+
+### Backend
+- Python
+- Flask
+- SQLite
+- pytest
+- unittest.mock
+
+### Concepts & Techniques
+- Clean architecture
+- Monte Carlo simulation
+- Separation of CLI and API responsibilities
+- Test isolation with mocks
+- Persistent storage abstraction
+
+---
+
+## Core Features
+
+- Game balance management
+- Betting and round execution
+- Outcome tracking
+- Statistical analysis of results
+- Monte Carlo simulations
+- Persistent storage of rounds and games
+- CLI gameplay interface
+- REST API for full system access
+- Deployed production-style backend service
+
+---
+
+## API Capabilities
+
+Using the API, you can:
+
+- Play game rounds
+- Retrieve stored game data
+- Run Monte Carlo simulations
+- Analyze statistical outcomes
+- Access aggregated analytics
+
+> The API exposes functionality that is intentionally **not available in CLI mode**, reinforcing separation of concerns.
+
+---
+
+## Testing
+
+All tests are written using **pytest**.
+
+Test coverage includes:
+
+### Unit Tests
+- Game balance logic
+- Betting mechanics
+- Outcome tracking
+- Statistics calculations
+- Analytics aggregation
+
+### Integration Tests
+- API endpoints
+- Storage interactions
+- Simulation execution
+
+Mocks (`unittest.mock`) are used to isolate dependencies such as storage and external interactions.
+
+---
+
+## Running Tests
 
 ```bash
-git clone https://github.com/katebabakova444/CasinoGame.git
-cd CasinoGame
+python -m pytest
+```
+
+## Running Locally
+CLI Mode
+```bash
 python main.py
 ```
 
-### Project Structure
-
-CasinoGame/
-├── main.py            # Entry point
-├── game.py            # Core logic and dice mechanics
-├── statistics.py      # Win/loss tracking
-├── ui.py              # CLI interface
-└── README.md
-
-
----
-
-## Example Output
-
+API mode
 ```bash
-Press Enter to play or 'q' to quit:
-Enter your bet (min: $5, available: $100): 20
-You rolled: 3 and 6
-You lose 20.
-Current balance: $80
-
-Press Enter to play or 'q' to quit: q
-
-Game history:
-Rolled 3 and 6
-
---- Game Summary ---
-Wins: 3
-Losses: 1
+python app.py
 ```
 
+## Deployment
+
+The API is deployed on Render as a production-style backend service:
+
+**Live API:** https://casinogame-iica.onrender.com
+
 ---
-
-##  What I Practiced
-- Structuring a multi-file Python project
-- Managing interactive game state and loops
-- Simulating randomness and statistical outcomes
-- Using Counter() to persist and analyze data
-- Practicing clean code: readable, modular, reusable
-
 ## Author
-
-Created by Kateryna Babakova (https://github.com/katebabakova444)
-This project is part of my backend development journey.
-View my full portfolio: kateryna-portfolio (https://github.com/katebabakova444/kateryna-portfolio)
+Created by Kateryna Babakova (https://github.com/katebabakova444) This project is part of my backend development journey.

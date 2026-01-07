@@ -28,7 +28,6 @@ CREATE TABLE IF NOT EXISTS rounds (
 conn.commit()
 conn.close()
 
-print("Database created successfully.")
 class Storage:
     def start_game(self, start_balance):
         conn = get_db()
@@ -64,7 +63,7 @@ class Storage:
             """
             UPDATE games
             SET balance = ?
-            WHERE game_id = ?
+            WHERE id = ?
             """,
             (balance, game_id)
         )

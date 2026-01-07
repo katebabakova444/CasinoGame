@@ -8,14 +8,15 @@ def main():
     stats = Statistics()
     ui = UI()
     storage = Storage()
+    game.game_id = storage.start_game(game.balance)
 
     while True:
         choice = ui.get_user_choice()
 
         if choice == 'q':
             ui.display_history(game.history)
-            ui.display_stats(stats.analyze(game.outcomes))
-            storage.save_game_session(game.history)
+            ui.display_stats(stats.analyze_basic(game.outcomes))
+            storage.finish_game(game.game_id, game.balance)
             break
 
         bet = ui.get_user_bet(game.balance)
@@ -30,14 +31,22 @@ def main():
                 result["outcome"],
                 result["dice"],
                 result["balance"])
+            dice1, dice2 = result["dice"]
+            storage.save_round(
+                game_id=game.game_id,
+                dice1=dice1,
+                dice2=dice2,
+                bet=bet,
+                outcome=result["outcome"],
+                balance=result["balance"]
+            )
         else:
             ui.display_message(result["message"])
 
         if game.balance < 5:
             ui.display_message("Game over! You're out of money.")
             ui.display_history(game.history)
-            ui.display_stats(stats.analyze(game.outcomes))
-            storage.save_game_session(game.history)
+            ui.display_stats(stats.analyze_basic(game.outcomes))
             storage.finish_game(game.game_id, game.balance)
             break
 

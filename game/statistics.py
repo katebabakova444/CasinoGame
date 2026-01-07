@@ -4,7 +4,7 @@ from game.game import Game
 class Statistics:
     def analyze_basic(self, outcomes):
         counts = Counter(outcomes)
-        wins = counts.get("wins", 0)
+        wins = counts.get("win", 0)
         losses = counts.get("lose", 0)
 
         total_games = wins + losses
